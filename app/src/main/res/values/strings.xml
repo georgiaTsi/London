@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">London Baby!</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="title_activity_detailed">Settings</string>
+
+    <string name="abbaeiotououestminster">Αββαείο του Ουέστμινστερ</string>
+    <string name="anaktoroTouMpakinxam">Ανάκτορο του Μπάκινχαμ</string>
+    <string name="bretanikoMouseio">Βρετανικό Μουσείο</string>
+    <string name="piccardiSquare">Piccadilly Circus</string>
+    <string name="purgosTouLondinou">Πύργος του Λονδίνου</string>
+    <string name="londonEye">London Eye</string>
+    <string name="stPaulsCathedral">Καθεδρικός ναός Αγίου Παύλου</string>
+    <string name="madameTussads">Madame Tussauds</string>
+    <string name="londonTowerBridge">London Tower Bridge</string>
+    <string name="mouseioFusikisIstorias">Μουσείο Φυσικής Ιστορίας</string>
+    <string name="bigBen">Big Ben</string>
+    <string name="harrods">Harrods</string>
+    <string name="selfridges">Selfridges</string>
+    <string name="albertMemorial">Μνημείο Αλμπέρτου</string>
+    <string name="royalAlbertHall">Royal Albert Hall</string>
+    <string name="marpleArch">Marple Arch</string>
+
+</resources>

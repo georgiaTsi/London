@@ -35,7 +35,8 @@ public class DetailedActivity extends AppCompatActivity {
         Selfridges,
         AlbertMemorial,
         RoyalAlbertHall,
-        MarpleArch
+        MarpleArch,
+        Shard
     };
 
     String abbaeioTouOuestminsterText = "Κάθε χρόνο, το Αββαείο του Ουέστμινστερ υποδέχεται πάνω από χίλιους επισκέπτες. Όλοι παραδέχονται ότι η τιμή και οι ουρές για να το επισκεφτείτε αξίζουν. Το 700 ετών κτίριο έχει φιλοξενήσει, σύμφωνα με την επίσημη ιστοσελίδα, “Βασιλιάδες, βασίλισσες, πολιτικούς και στρατιώτες, ποιητές, ιερείς, ήρωες και κακοποιούς”.";
@@ -77,6 +78,9 @@ public class DetailedActivity extends AppCompatActivity {
     String marpleArch = "Marble Arch is a 19th-century white marble-faced triumphal arch in London, England. The structure was designed by John Nash in 1827 to be the state entrance to the cour d'honneur of Buckingham Palace; it stood near the site of what is today the three-bayed, central projection of the palace containing the well-known balcony.[1] In 1851, on the initiative of architect and urban planner Decimus Burton, a one-time pupil of John Nash, it was relocated to its current site. Following the widening of Park Lane in the early 1960s, the site became a large traffic island at the junction of Oxford Street, Park Lane and Edgware Road, isolating the arch. Admiralty Arch, Holyhead in Wales is a similar arch, also cut off from public access, at the other end of the A5.\n" +
                                 "\n" + "Only members of the Royal Family and the King's Troop, Royal Horse Artillery are said to be permitted to pass through the arch; this happens in ceremonial processions.[2]\n" +
                                 "\n" + "The arch gives its name to the area surrounding it, particularly the southern portion of Edgware Road and also to the underground station. The arch is not part of the Royal Parks and is maintained by Westminster City Council.";
+
+    String shard = "Το Σαρντ (αγγλικά: The Shard, επίσης Shard London Bridge και London Bridge Tower) είναι ένας ουρανοξύστης στο Λονδίνο. Με ύψος 309,6 μέτρα είναι το ψηλότερο κτίριο στo Ηνωμένο Βασίλειο και 7ο ψηλότερο Ευρώπη και η δεύτερη ψηλότερη κατασκευή στο Ηνωμένο Βασίλειο μετά το τηλεπικοινωνιακό πύργο Έλμεϊ Μουρ, ο οποίος έχει ύψος 330 μέτρα. Η κατασκευή του ολοκληρώθηκε τις 30 Μαρτίου 2012 και τα επίσημα εγκαίνια έλαβαν χώρα στις 5 Ιουλίου 2012.\n" +
+            "\n" + "Το Σαρντ αντικατέστησε το πύργο Σάουθγουορκ, ένα κτίριο γραφείων με 24 ορόφους, κατασκευασμένο στο Σαουθγουόρκ το 1975. Ο Ρέντσο Πιάνο συνεργαστήκε με τη Μπροντγουέι Μαλίαν για τα πρώτα στάδια του σχεδιασμού του κτιρίου. Έχει 95 ορόφους συνολικά, από τους οποίους αξιοποιούνται οι 72. Στον 72ο όροφο, σε ύψος 245 μέτρων βρίσκεται το υψηλότερο παρατηρητήριο στο Λονδίνο. Έχει σχήμα ακανόνιστης πυραμίδας. Η κατασκευή του έχει προκαλέσει έντονη κριτική, καθώς θεωρήθηκε ότι καταστρέφει το αστικό τοπίο του Λονδίνου και επισκιάζει τη γέφυρα του Πύργου και τον καθεδρικό του Αγίου Παύλου, δύο από τα πιο διάσημα μνημεία του Λονδίνου.";
 
     String location = "";
 
@@ -229,6 +233,14 @@ public class DetailedActivity extends AppCompatActivity {
                 textView.setText(marpleArch);
 
                 location = "51.51328347964058,-0.15890407298585052";
+                break;
+
+            case Shard:
+                toolBarLayout.setTitle(getResources().getString(R.string.shard));
+                toolBarLayout.setBackground(getDrawable(R.drawable.the_shard));
+                textView.setText(shard);
+
+                location = "51.50513827322078,-0.08652307007557873";
                 break;
         }
     }

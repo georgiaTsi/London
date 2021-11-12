@@ -117,6 +117,7 @@ public class MainActivity extends Activity {
         allItemsList.add(new Item(getResources().getString(R.string.albertMemorial), ResourcesCompat.getDrawable(getResources(), R.drawable.albert_memorial, null), DetailedActivity.Places.AlbertMemorial, false, false));
         allItemsList.add(new Item(getResources().getString(R.string.royalAlbertHall), ResourcesCompat.getDrawable(getResources(), R.drawable.royal_ambert_hall, null), DetailedActivity.Places.RoyalAlbertHall, false, false));
         allItemsList.add(new Item(getResources().getString(R.string.marpleArch), ResourcesCompat.getDrawable(getResources(), R.drawable.marple_arch, null), DetailedActivity.Places.MarpleArch, false, false));
+        allItemsList.add(new Item(getResources().getString(R.string.shard), ResourcesCompat.getDrawable(getResources(), R.drawable.the_shard, null), DetailedActivity.Places.Shard, false, false));
 
         //Must see
         for(int i = 0; i < allItemsList.size(); i++){

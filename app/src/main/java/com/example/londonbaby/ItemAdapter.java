@@ -1,6 +1,7 @@
 package com.example.londonbaby;
 
 import android.app.Activity;
+import android.content.ClipData;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,16 +12,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
-    List<MainActivity.Item> dataSet;
+    List<MainActivity.Item> dataSet = new ArrayList<MainActivity.Item>();
 
     Activity activity;
 
-    public ItemAdapter(List<MainActivity.Item> items, Activity activity){
-        dataSet = items;
+    public ItemAdapter(Activity activity){
         this.activity = activity;
     }
 
@@ -92,6 +93,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
             return 0;
 
         return dataSet.size();
+    }
+
+    public void updateAdapter(List<MainActivity.Item> newList){
+        dataSet.clear();
+        dataSet.addAll(newList);
+
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

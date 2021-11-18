@@ -1,6 +1,8 @@
 package com.example.londonbaby;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -90,6 +92,13 @@ public class DetailedActivity extends AppCompatActivity {
 
     String location = "";
 
+    boolean isEditMode = false;
+    SharedPreferences sharedPref;
+
+    Places place;
+
+    TextView textView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,15 +117,19 @@ public class DetailedActivity extends AppCompatActivity {
             }
         });
 
-        TextView textView = findViewById(R.id.textview_contentscrolling_text);
+        initEditFab();
 
-        Places place = (Places) getIntent().getExtras().get("place");
+        textView = findViewById(R.id.textview_contentscrolling_text);
+
+        place = (Places) getIntent().getExtras().get("place");
+
+        String text = "";
 
         switch (place){
             case AbbaeioTouOuestminster:
                 toolBarLayout.setTitle(getResources().getString(R.string.abbaeiotououestminster));
                 toolBarLayout.setBackground(getDrawable(R.drawable.abbaeio_tou_ouestminster));
-                textView.setText(abbaeioTouOuestminsterText);
+                text = abbaeioTouOuestminsterText;
 
                 location = "51.50217146422497, -0.12753915742413538";
                 break;
@@ -124,7 +137,7 @@ public class DetailedActivity extends AppCompatActivity {
             case AnaktoroTouMpakinxam:
                 toolBarLayout.setTitle(getResources().getString(R.string.anaktoroTouMpakinxam));
                 toolBarLayout.setBackground(getDrawable(R.drawable.anaktoro_tou_mpakinxam));
-                textView.setText(anaktoroTouMpakinxam);
+                text = anaktoroTouMpakinxam;
 
                 location = "51.503240017957395,-0.14178705148241785";
                 break;
@@ -132,7 +145,7 @@ public class DetailedActivity extends AppCompatActivity {
             case BretanikoMouseio:
                 toolBarLayout.setTitle(getResources().getString(R.string.bretanikoMouseio));
                 toolBarLayout.setBackground(getDrawable(R.drawable.bretaniko_mouseio));
-                textView.setText(bretanikoMouseio);
+                text = bretanikoMouseio;
 
                 location = "51.52140159807511,-0.12771081879833154";
                 break;
@@ -140,7 +153,7 @@ public class DetailedActivity extends AppCompatActivity {
             case PiccardiSquare:
                 toolBarLayout.setTitle(getResources().getString(R.string.piccardiSquare));
                 toolBarLayout.setBackground(getDrawable(R.drawable.piccardi_square));
-                textView.setText(piccardiSquare);
+                text = piccardiSquare;
 
                 location = "51.51010481778367,-0.13452973304280164";
                 break;
@@ -148,7 +161,7 @@ public class DetailedActivity extends AppCompatActivity {
             case PurgosTouLondinou:
                 toolBarLayout.setTitle(getResources().getString(R.string.purgosTouLondinou));
                 toolBarLayout.setBackground(getDrawable(R.drawable.purgos_tou_londinou));
-                textView.setText(purgosTouLondinou);
+                text = purgosTouLondinou;
 
                 location = "51.51029184420654,-0.0758690837910868";
                 break;
@@ -156,7 +169,7 @@ public class DetailedActivity extends AppCompatActivity {
             case LondonEye:
                 toolBarLayout.setTitle(getResources().getString(R.string.londonEye));
                 toolBarLayout.setBackground(getDrawable(R.drawable.london_eye));
-                textView.setText(londonEye);
+                text = londonEye;
 
                 location = "51.50341081185328,-0.11911381955073574";
                 break;
@@ -164,7 +177,7 @@ public class DetailedActivity extends AppCompatActivity {
             case StPaulsCathedral:
                 toolBarLayout.setTitle(getResources().getString(R.string.stPaulsCathedral));
                 toolBarLayout.setBackground(getDrawable(R.drawable.st_pauls_cathedral));
-                textView.setText(stPaulsCathedral);
+                text = stPaulsCathedral;
 
                 location = "51.51509928182598,-0.09852838518498187";
                 break;
@@ -172,7 +185,7 @@ public class DetailedActivity extends AppCompatActivity {
             case MadameTussads:
                 toolBarLayout.setTitle(getResources().getString(R.string.madameTussads));
                 toolBarLayout.setBackground(getDrawable(R.drawable.madame_tussads));
-                textView.setText(madameTussadsText);
+                text = madameTussadsText;
 
                 location = "51.524926242126455,-0.15294504080516919";
                 break;
@@ -180,7 +193,7 @@ public class DetailedActivity extends AppCompatActivity {
             case LondonTowerBridge:
                 toolBarLayout.setTitle(getResources().getString(R.string.londonTowerBridge));
                 toolBarLayout.setBackground(getDrawable(R.drawable.london_tower_bridge));
-                textView.setText(londonTowerBridgeText);
+                text = londonTowerBridgeText;
 
                 location = "51.5077276700287,-0.07501077692010594";
                 break;
@@ -188,7 +201,7 @@ public class DetailedActivity extends AppCompatActivity {
             case MouseioFusikisIstorias:
                 toolBarLayout.setTitle(getResources().getString(R.string.mouseioFusikisIstorias));
                 toolBarLayout.setBackground(getDrawable(R.drawable.mouseio_fusikis_istorias));
-                textView.setText(mouseioFusikisIstoriasText);
+                text = mouseioFusikisIstoriasText;
 
                 location = "51.49864505913568,-0.17697763319263365";
                 break;
@@ -196,7 +209,7 @@ public class DetailedActivity extends AppCompatActivity {
             case BigBen:
                 toolBarLayout.setTitle(getResources().getString(R.string.bigBen));
                 toolBarLayout.setBackground(getDrawable(R.drawable.big_ben));
-                textView.setText(bigBenText);
+                text = bigBenText;
 
                 location = "51.503453725697206,-0.12479257543699657";
                 break;
@@ -204,7 +217,7 @@ public class DetailedActivity extends AppCompatActivity {
             case Harrods:
                 toolBarLayout.setTitle(getResources().getString(R.string.harrods));
                 toolBarLayout.setBackground(getDrawable(R.drawable.harrods));
-                textView.setText(harrodsText);
+                text = harrodsText;
 
                 location = "51.508958865390845,-0.15371442794816087";
                 break;
@@ -212,7 +225,7 @@ public class DetailedActivity extends AppCompatActivity {
             case Selfridges:
                 toolBarLayout.setTitle(getResources().getString(R.string.selfridges));
                 toolBarLayout.setBackground(getDrawable(R.drawable.selfridges));
-                textView.setText(selfridgesText);
+                text = selfridgesText;
 
                 location = "51.514530107406486,-0.1527777305446616";
                 break;
@@ -220,7 +233,7 @@ public class DetailedActivity extends AppCompatActivity {
             case AlbertMemorial:
                 toolBarLayout.setTitle(getResources().getString(R.string.albertMemorial));
                 toolBarLayout.setBackground(getDrawable(R.drawable.albert_memorial));
-                textView.setText(albertMemorialText);
+                text = albertMemorialText;
 
                 location = "51.5025118636579,-0.1777284593810015";
                 break;
@@ -228,7 +241,7 @@ public class DetailedActivity extends AppCompatActivity {
             case RoyalAlbertHall:
                 toolBarLayout.setTitle(getResources().getString(R.string.royalAlbertHall));
                 toolBarLayout.setBackground(getDrawable(R.drawable.royal_ambert_hall));
-                textView.setText(royalAlbertHall);
+                text = royalAlbertHall;
 
                 location = "51.5010423539217,-0.17732308647867379";
                 break;
@@ -236,7 +249,7 @@ public class DetailedActivity extends AppCompatActivity {
             case MarpleArch:
                 toolBarLayout.setTitle(getResources().getString(R.string.marpleArch));
                 toolBarLayout.setBackground(getDrawable(R.drawable.marple_arch));
-                textView.setText(marpleArch);
+                text = marpleArch;
 
                 location = "51.51328347964058,-0.15890407298585052";
                 break;
@@ -244,7 +257,7 @@ public class DetailedActivity extends AppCompatActivity {
             case Shard:
                 toolBarLayout.setTitle(getResources().getString(R.string.shard));
                 toolBarLayout.setBackground(getDrawable(R.drawable.the_shard));
-                textView.setText(shard);
+                text = shard;
 
                 location = "51.50513827322078,-0.08652307007557873";
                 break;
@@ -252,7 +265,7 @@ public class DetailedActivity extends AppCompatActivity {
             case StatueOfEros:
                 toolBarLayout.setTitle(getResources().getString(R.string.statueOfEros));
                 toolBarLayout.setBackground(getDrawable(R.drawable.agalma_eros));
-                textView.setText(statueOfEros);
+                text = statueOfEros;
 
                 location = "51.5100840864944,-0.13439438315619157";
                 break;
@@ -260,15 +273,18 @@ public class DetailedActivity extends AppCompatActivity {
             case Chinatown:
                 toolBarLayout.setTitle(getResources().getString(R.string.chinatown));
                 toolBarLayout.setBackground(getDrawable(R.drawable.chinatown));
-                textView.setText(chinaTown);
+                text = chinaTown;
 
                 location = "51.512933457120454,-0.13095704582582932";
                 break;
         }
+
+        sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        String details = sharedPref.getString(place.toString(), text);
+        textView.setText(details);
     }
 
-    private void openGoogleMaps()
-    {
+    private void openGoogleMaps() {
         try{
             Uri gmmIntentUri = Uri.parse("geo:"+location);
 
@@ -279,5 +295,39 @@ public class DetailedActivity extends AppCompatActivity {
             startActivity(mapIntent);
         }
         catch(Exception e){}
+    }
+
+    private void initEditFab(){
+        FloatingActionButton editFab = findViewById(R.id.fab_detailed_edit);
+        editFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!isEditMode){//Edit
+                    editFab.setImageResource(R.drawable.save);
+
+                    textView.setFocusable(true);
+                    textView.setEnabled(true);
+                    textView.setClickable(true);
+                    textView.setFocusableInTouchMode(true);
+                }
+                else{//Save
+                    editFab.setImageResource(R.drawable.pencil);
+
+                    textView.setFocusable(false);
+                    textView.setEnabled(false);
+                    textView.setClickable(false);
+                    textView.setFocusableInTouchMode(false);
+
+                    textView.setTextColor(-16777216);
+
+                    //Save
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString(place.toString(), textView.getText().toString());
+                    editor.apply();
+                }
+
+                isEditMode = !isEditMode;
+            }
+        });
     }
 }

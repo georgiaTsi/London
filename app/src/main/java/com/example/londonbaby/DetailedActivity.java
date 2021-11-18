@@ -36,7 +36,9 @@ public class DetailedActivity extends AppCompatActivity {
         AlbertMemorial,
         RoyalAlbertHall,
         MarpleArch,
-        Shard
+        Shard,
+        StatueOfEros,
+        Chinatown
     };
 
     String abbaeioTouOuestminsterText = "Κάθε χρόνο, το Αββαείο του Ουέστμινστερ υποδέχεται πάνω από χίλιους επισκέπτες. Όλοι παραδέχονται ότι η τιμή και οι ουρές για να το επισκεφτείτε αξίζουν. Το 700 ετών κτίριο έχει φιλοξενήσει, σύμφωνα με την επίσημη ιστοσελίδα, “Βασιλιάδες, βασίλισσες, πολιτικούς και στρατιώτες, ποιητές, ιερείς, ήρωες και κακοποιούς”.";
@@ -81,6 +83,10 @@ public class DetailedActivity extends AppCompatActivity {
 
     String shard = "Το Σαρντ (αγγλικά: The Shard, επίσης Shard London Bridge και London Bridge Tower) είναι ένας ουρανοξύστης στο Λονδίνο. Με ύψος 309,6 μέτρα είναι το ψηλότερο κτίριο στo Ηνωμένο Βασίλειο και 7ο ψηλότερο Ευρώπη και η δεύτερη ψηλότερη κατασκευή στο Ηνωμένο Βασίλειο μετά το τηλεπικοινωνιακό πύργο Έλμεϊ Μουρ, ο οποίος έχει ύψος 330 μέτρα. Η κατασκευή του ολοκληρώθηκε τις 30 Μαρτίου 2012 και τα επίσημα εγκαίνια έλαβαν χώρα στις 5 Ιουλίου 2012.\n" +
             "\n" + "Το Σαρντ αντικατέστησε το πύργο Σάουθγουορκ, ένα κτίριο γραφείων με 24 ορόφους, κατασκευασμένο στο Σαουθγουόρκ το 1975. Ο Ρέντσο Πιάνο συνεργαστήκε με τη Μπροντγουέι Μαλίαν για τα πρώτα στάδια του σχεδιασμού του κτιρίου. Έχει 95 ορόφους συνολικά, από τους οποίους αξιοποιούνται οι 72. Στον 72ο όροφο, σε ύψος 245 μέτρων βρίσκεται το υψηλότερο παρατηρητήριο στο Λονδίνο. Έχει σχήμα ακανόνιστης πυραμίδας. Η κατασκευή του έχει προκαλέσει έντονη κριτική, καθώς θεωρήθηκε ότι καταστρέφει το αστικό τοπίο του Λονδίνου και επισκιάζει τη γέφυρα του Πύργου και τον καθεδρικό του Αγίου Παύλου, δύο από τα πιο διάσημα μνημεία του Λονδίνου.";
+
+    String statueOfEros = "Το Shaftesbury Memorial Fountain, δημοφιλές αλλά λανθασμένα γνωστό ως \"Eros\", είναι ένα σιντριβάνι που περιβάλλεται από ένα φτερωτό άγαλμα του Anteros (αδερφός του Έρως αντι-Έρως), που βρίσκεται στη νοτιοανατολική πλευρά του Piccadilly Circus στο Λονδίνο της Αγγλίας. Σε αυτό το σημείο ήρθε μετά τον Δεύτερο Παγκόσμιο Πόλεμο. ";
+
+    String chinaTown = "Βρίσκεται δίπλα από το Piccadily Circus. Είναι από τις πιο γνωστές Chinatown στον κόσμο, είναι πολύ τουραστική με πολλά μαγαζιά και ένα ωραίο μέρος για βόλτα. Πολλά κινέζικα εστιατόρια στο Λονδίνο είναι τύπου μπουφέ, φάε όσο μπορείς και πληρώνεις 10 ευρώ.";
 
     String location = "";
 
@@ -241,6 +247,22 @@ public class DetailedActivity extends AppCompatActivity {
                 textView.setText(shard);
 
                 location = "51.50513827322078,-0.08652307007557873";
+                break;
+
+            case StatueOfEros:
+                toolBarLayout.setTitle(getResources().getString(R.string.statueOfEros));
+                toolBarLayout.setBackground(getDrawable(R.drawable.agalma_eros));
+                textView.setText(statueOfEros);
+
+                location = "51.5100840864944,-0.13439438315619157";
+                break;
+
+            case Chinatown:
+                toolBarLayout.setTitle(getResources().getString(R.string.chinatown));
+                toolBarLayout.setBackground(getDrawable(R.drawable.chinatown));
+                textView.setText(chinaTown);
+
+                location = "51.512933457120454,-0.13095704582582932";
                 break;
         }
     }

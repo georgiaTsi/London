@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Food
         foodList.add(new Item(getResources().getString(R.string.madison), ResourcesCompat.getDrawable(getResources(), R.drawable.madison, null), DetailedActivity.Places.Madison, false, false));
-        foodList.add(new Item(getResources().getString(R.string.flyersDelight), ResourcesCompat.getDrawable(getResources(), R.drawable.fryersDelight, null), DetailedActivity.Places.FryersDelight, false, false));
+        foodList.add(new Item(getResources().getString(R.string.flyersDelight), ResourcesCompat.getDrawable(getResources(), R.drawable.fryersdelight, null), DetailedActivity.Places.FryersDelight, false, false));
     }
 
     public class Item {

@@ -305,7 +305,7 @@ public class DetailedActivity extends AppCompatActivity {
 
             case FryersDelight:
                 toolBarLayout.setTitle(getResources().getString(R.string.flyersDelight));
-                toolBarLayout.setBackground(getDrawable(R.drawable.fryersDelight));
+                toolBarLayout.setBackground(getDrawable(R.drawable.fryersdelight));
                 text = fryersDelight;
 
                 //location = "51.532393084409826,-0.12402710182099574";

@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     List<Item> allItemsList = new ArrayList<Item>();
     List<Item> mustSeeList = new ArrayList<Item>();
     List<Item> shoppingList = new ArrayList<Item>();
+    List<Item> foodList = new ArrayList<Item>();
 
     RecyclerView recyclerView;
     ItemAdapter itemAdapter;
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initializeSpinner(){
-        String[] arraySpinner = new String[]{"All", "Shopping", "Must see"};
+        String[] arraySpinner = new String[]{"All", "Shopping", "Must see", "Food"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arraySpinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -58,8 +59,11 @@ public class MainActivity extends AppCompatActivity {
                 else if(position == 1){//Shopping
                     itemAdapter.updateAdapter(shoppingList);
                 }
-                else{//Must see
+                else if(position == 2){//Must see
                     itemAdapter.updateAdapter(mustSeeList);
+                }
+                else {
+                    itemAdapter.updateAdapter(foodList);
                 }
             }
 
@@ -121,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
         allItemsList.add(new Item(getResources().getString(R.string.shard), ResourcesCompat.getDrawable(getResources(), R.drawable.the_shard, null), DetailedActivity.Places.Shard, false, false));
         allItemsList.add(new Item(getResources().getString(R.string.statueOfEros), ResourcesCompat.getDrawable(getResources(), R.drawable.agalma_eros, null), DetailedActivity.Places.StatueOfEros, false, false));
         allItemsList.add(new Item(getResources().getString(R.string.chinatown), ResourcesCompat.getDrawable(getResources(), R.drawable.chinatown, null), DetailedActivity.Places.Chinatown, true, false));
+        allItemsList.add(new Item(getResources().getString(R.string.platform934), ResourcesCompat.getDrawable(getResources(), R.drawable.platform934, null), DetailedActivity.Places.Platform934, false, true));
 
         //Must see
         for(int i = 0; i < allItemsList.size(); i++){
@@ -135,6 +140,10 @@ public class MainActivity extends AppCompatActivity {
                 shoppingList.add(allItemsList.get(i));
             }
         }
+
+        //Food
+        foodList.add(new Item(getResources().getString(R.string.madison), ResourcesCompat.getDrawable(getResources(), R.drawable.madison, null), DetailedActivity.Places.Madison, false, false));
+        foodList.add(new Item(getResources().getString(R.string.flyersDelight), ResourcesCompat.getDrawable(getResources(), R.drawable.fryersDelight, null), DetailedActivity.Places.FryersDelight, false, false));
     }
 
     public class Item {
